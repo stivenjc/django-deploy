@@ -1,0 +1,52 @@
+{% extends 'twitter/layout.html' %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <h1>{% trans "Sign Up" %}</h1>
+
+
+    <div class="twitter-login-box">
+        <header>
+            <img src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-jumbo-v4.jpg?quality=90&auto=webp"
+                 alt="twitter logo">
+            <h1>Inicia Sesión</h1>
+        </header>
+        <form class="mx-1 mx-md-4" method="post"
+              action="{% url 'account_login' %}">
+
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class=" form-check d-flex justify-content-center mb-5
+                                    ">
+                <input class="form-check-input me-2" type="checkbox" value=""
+                       id="form2Example3c"/>
+                <label class="form-check-label" for="form2Example3">
+                    si no estar registado entra <a
+                        href="{% url 'account_signup' %}">aqui</a>
+                </label>
+            </div>
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            </div>
+
+        </form>
+
+        <div class="footer">
+            <a href="#">Forget Password</a> .
+            <a href="#">Sign up to twitter</a>
+        </div>
+
+    </div>
+
+{% endblock %}

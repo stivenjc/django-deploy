@@ -1,0 +1,13 @@
+
+
+
+{% extends 'twitter/layout.html' %}
+{% block content %}
+    <form class="is-form" method="POST">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <p>estas seguro que desesa eliminar el twitter <h5 class="text-danger">{{ object }}</h5></p>
+            <button type="submit" class="btn btn-danger">eliminar</button>
+        </div>
+    </form>
+{% endblock content %}
